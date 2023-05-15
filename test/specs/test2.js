@@ -1,11 +1,12 @@
-// https://demoqa.com/
-// Click on the Widgets card
-// - Click on the Tool Tips link on the left-hand side in the Widgets section.
-// - Hover over the “Hover me to see” button
-// - Use Assertion to compare the tooltip text with “You hovered over the Button”.
+/*
 
-// tooltip = //body/div[@id='app']/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[7]
+1. Navigate to https://demoqa.com/
+2. Click on the Widgets card
+3. Click on the Tool Tips link on the left-hand side in the Widgets section.
+4. Hover over the “Hover me to see” button
+5. Use Assertion to compare the tooltip text with “You hovered over the Button”.
 
+*/
 
 describe("Test 2 (DemoQA)", () => {
     it('Open DemoQA', async () => {
@@ -28,7 +29,10 @@ describe("Test 2 (DemoQA)", () => {
 
     it('Hover over the “Hover me to see” button and assert text', async () => {
         // Hover over the “Hover me to see” button and assert text
-        await browser.elementHover("//button[@id='toolTipButton']");
-        await expect("//button[@id='toolTipButton']").toHaveTextContaining("Hover me to see")
+        const btnToHover = $("//button[@id='toolTipButton']")
+
+        await btnToHover.moveTo()
+        await expect(btnToHover).toHaveTextContaining("Hover me to see")
+        await browser.pause(100)
     })
 });

@@ -1,3 +1,12 @@
+/*
+
+1. Go to https://www.google.com/
+2. Search for “cheese”
+3. Use assertion to compare the number of results to 777.
+4. The test should fail during the comparison with an assertion message "There is too much cheese on the internet".
+
+*/
+
 describe("Test 1 (Google)", () => {
     it('Open Google and close cookies', async () => {
         // Open URL
@@ -23,7 +32,6 @@ describe("Test 1 (Google)", () => {
         const resultCount = await $("#result-stats");
 
         // assert result count is 777
-        await expect(resultCount).toHaveTextContaining("777")
+        await expect(resultCount).toHaveTextContaining("777", {message: "There is too much cheese on the internet"})
     })
-    console.log("There is too much cheese on the internet")
 });
