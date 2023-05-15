@@ -1,4 +1,4 @@
-describe("Test 1", () => {
+describe("Test 1 (Google)", () => {
     it('Open Google and close cookies', async () => {
         // Open URL
         await browser.url('https://www.google.com/');
@@ -6,7 +6,7 @@ describe("Test 1", () => {
         // Close Cookies
         await $('//*[@id="W0wltc"]/div').click();
 
-        //assert title
+        // Assert title
         await expect(browser).toHaveTitle("Google");
     })
 
@@ -23,6 +23,7 @@ describe("Test 1", () => {
         const resultCount = await $("#result-stats");
 
         // assert result count is 777
-        await expect(resultCount).toHaveTextContaining("Oko 1.520.000.000 rezultata")
+        await expect(resultCount).toHaveTextContaining("777")
     })
+    console.log("There is too much cheese on the internet")
 });
